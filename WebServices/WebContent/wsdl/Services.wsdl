@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Services.app.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Services.app.com" xmlns:intf="http://Services.app.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Services.app.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="idService">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="idServiceResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="idServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="paymentService">
+    <complexType/>
+   </element>
+   <element name="paymentServiceResponse">
+    <complexType/>
+   </element>
+   <element name="getService">
+    <complexType/>
+   </element>
+   <element name="getServiceResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="paymentServiceResponse">
+
+      <wsdl:part element="impl:paymentServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idServiceRequest">
+
+      <wsdl:part element="impl:idService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="paymentServiceRequest">
+
+      <wsdl:part element="impl:paymentService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getServiceRequest">
+
+      <wsdl:part element="impl:getService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="idServiceResponse">
+
+      <wsdl:part element="impl:idServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getServiceResponse">
+
+      <wsdl:part element="impl:getServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Services">
+
+      <wsdl:operation name="idService">
+
+         <wsdl:input message="impl:idServiceRequest" name="idServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:idServiceResponse" name="idServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="paymentService">
+
+         <wsdl:input message="impl:paymentServiceRequest" name="paymentServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:paymentServiceResponse" name="paymentServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getService">
+
+         <wsdl:input message="impl:getServiceRequest" name="getServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getServiceResponse" name="getServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServicesSoapBinding" type="impl:Services">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="idService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="idServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="idServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="paymentService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="paymentServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="paymentServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServicesService">
+
+      <wsdl:port binding="impl:ServicesSoapBinding" name="Services">
+
+         <wsdlsoap:address location="http://localhost:8080/WebServices/services/Services"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

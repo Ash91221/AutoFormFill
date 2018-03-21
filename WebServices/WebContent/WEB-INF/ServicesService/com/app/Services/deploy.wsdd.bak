@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServicesService WSDL service -->
+
+  <service name="Services" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Services.app.com"/>
+      <parameter name="wsdlServiceElement" value="ServicesService"/>
+      <parameter name="schemaQualified" value="http://Services.app.com"/>
+      <parameter name="wsdlServicePort" value="Services"/>
+      <parameter name="className" value="com.app.Services.ServicesSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Services"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="idService" qname="operNS:idService" xmlns:operNS="http://Services.app.com" returnQName="retNS:idServiceReturn" xmlns:retNS="http://Services.app.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://Services.app.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="paymentService" qname="operNS:paymentService" xmlns:operNS="http://Services.app.com" soapAction="" >
+      </operation>
+      <operation name="getService" qname="operNS:getService" xmlns:operNS="http://Services.app.com" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="paymentService idService getService"/>
+
+  </service>
+</deployment>
