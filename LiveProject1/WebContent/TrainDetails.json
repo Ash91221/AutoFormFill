@@ -1,0 +1,34 @@
+[
+ 	{
+ 		"TrainNo" : "12345",
+ 		"From" : "Hyderabad",
+ 		"To" : "Mumbai",
+ 		"DTime" : "17:30",
+ 		"ATime" : "12:45"
+ 	},
+ 	
+ 	{
+ 		"TrainNo" : "67890",
+ 		"From" : "Mumbai",
+ 		"To" : "Delhi",
+ 		"DTime" : "14:30",
+ 		"ATime" : "4:45"
+ 	},
+ 	
+ 	{
+ 		"TrainNo" : "13579",
+ 		"From" : "Kerala",
+ 		"To" : "Bengaluru",
+ 		"DTime" : "9:50",
+ 		"ATime" : "6:45"
+ 	},
+ 	
+ 	{
+ 		"TrainNo" : "24680",
+ 		"From" : "Goa",
+ 		"To" : "Delhi",
+ 		"DTime" : "10:55",
+ 		"ATime" : "22:20"
+ 	}
+ 	
+]
