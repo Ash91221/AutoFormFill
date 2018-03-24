@@ -1,17 +1,17 @@
 package com.app.transaction;
 
 public class Details {
-	String Aid;
+	String aid;
 	String name;
 	String mobile;
 	String email;
 	String gender;
 	int age;
 	public String getAid() {
-		return Aid;
+		return aid;
 	}
 	public void setAid(String aid) {
-		Aid = aid;
+		this.aid = aid;
 	}
 	public String getName() {
 		return name;

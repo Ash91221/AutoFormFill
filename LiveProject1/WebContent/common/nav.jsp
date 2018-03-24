@@ -29,11 +29,11 @@
    			<li class="nav-item dropdown">
         		<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Manage Bookings</a>
         		<div class="dropdown-menu">
-        			<a class="dropdown-item" href="#">Recent bookings</a>
+        			<a class="dropdown-item" href="Recent.do">Recent bookings</a>
         		</div>
       		</li>
       		<li class="nav-item">
-        		<a class="nav-link" href="Logout">Log out, ${fname} </a>
+        		<a class="nav-link" href="Logout.do">Log out, ${fname} </a>
       		</li>
     	</ul>
 	</nav>

@@ -17,7 +17,7 @@ import org.apache.catalina.connector.Request;
 /**
  * Servlet implementation class OtpValidation
  */
-@WebServlet("/OtpValidation")
+@WebServlet("/OtpValidation.do")
 
 public class OtpValidation extends HttpServlet {
 	private static final long serialVersionUID = 1L;

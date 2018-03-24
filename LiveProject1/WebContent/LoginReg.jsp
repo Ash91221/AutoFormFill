@@ -54,11 +54,11 @@
 	</script>
 	<div class = "container">
 		<div class = "lform" id = "lform">
-			<form action = "Login" class = "form-group" method = "post">
+			<form action = "Login.do" class = "form-group" method = "post">
 				<font color = "red">${error}</font>
 				<h2>Login</h2>
 				<hr />
-				Username:<input type = "text" name = "l1" class = "form-control" required = "" autofocus = ""><br />
+				EmailId:<input type = "email" name = "l1" class = "form-control" required = "" autofocus = ""><br />
 				Password:<input type = "password" name = "l2" class = "form-control" required = "">
 				<a href = "intialf.jsp">forgot password?</a><br /><br />
 				<input type = "submit" value = "Login" class = "btn btn-primary btn-lg btn-block">
@@ -69,7 +69,7 @@
 		<div class = "rform" id = "rform">
 					<form action = "Register" class = "form-group" method = "post">
 					 	Full Name:<input type = "text" name = "r1" class = "form-control" placeholder = "Fullname" required="" autofocus=""><br />
-					 	Username:<input type = "text" name = "r2" class = "form-control" placeholder = "Username" required=""><br />
+					 	EmailId:<input type = "email" name = "r2" class = "form-control" placeholder = "Username" required=""><br />
 					 	Password:<input type = "password" name = "r3" class = "form-control" placeholder = "Password" required=""><br />
 					 	MobileNo:<input type = "number" name = "r4" class = "form-control" placeholder = "MobileNo" required=""><br />
 						<input type = "submit" class = "btn btn-primary btn-lg btn-block" value = "Register">

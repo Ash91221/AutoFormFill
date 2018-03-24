@@ -1,6 +1,6 @@
 [
- 	{
- 		"No" : "12345",
+	{
+ 		"No" : "1234",
  		"From" : "Hyderabad",
  		"To" : "Mumbai",
  		"DTime" : "17:30",
@@ -8,7 +8,7 @@
  	},
  	
  	{
- 		"No" : "67890",
+ 		"No" : "5678",
  		"From" : "Mumbai",
  		"To" : "Delhi",
  		"DTime" : "14:30",
@@ -16,7 +16,7 @@
  	},
  	
  	{
- 		"No" : "13579",
+ 		"No" : "1357",
  		"From" : "Kerala",
  		"To" : "Bengaluru",
  		"DTime" : "9:50",
@@ -24,11 +24,10 @@
  	},
  	
  	{
- 		"No" : "24680",
+ 		"No" : "2468",
  		"From" : "Goa",
  		"To" : "Delhi",
  		"DTime" : "10:55",
  		"ATime" : "22:20"
  	}
- 	
 ]

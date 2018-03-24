@@ -25,13 +25,12 @@
 </head>
 <body>
 	<div class = "OTP">
-			<form action = "OtpValidation" class = "form-group" method = "post">
+			<form action = "OtpValidation.do" class = "form-group" method = "post">
 				<font color = "red">${error1}</font>
 				<h2>Verification</h2>
 				<hr />
 				OTP: <input type = "number" name = "o1" class = "form-control" required = "" autofocus = ""><br />
 				<input type = "submit" value = "Verify" class = "btn btn-success btn-lg btn-block">
-				<a href = "" style = "float:right">Resend Otp</a>
 			</form>
 		</div>
 </body>

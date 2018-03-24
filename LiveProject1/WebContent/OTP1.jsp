@@ -31,7 +31,6 @@
 				<hr />
 				OTP: <input type = "number" name = "o1" class = "form-control" required = "" autofocus = ""><br />
 				<input type = "submit" value = "Verify" class = "btn btn-success btn-lg btn-block">
-				<a href = "" style = "float:right">Resend Otp</a>
 			</form>
 		</div>
 </body>

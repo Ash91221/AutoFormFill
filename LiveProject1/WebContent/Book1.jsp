@@ -66,11 +66,27 @@
 			margin: 20px -100px;
 			background-color: white;
 		}
-		
+			
 	</style>
 	<script>
-		function show()
+	var type;
+		function show(id)
 		{
+			if(id == 1)
+			{
+				type = "TrainDetails.json";
+				document.getElementById("type").value = "Train";
+			}
+			else if(id == 2)
+			{
+				type = "BusDetails.json";
+				document.getElementById("type").value = "Bus";
+			}
+			else
+			{
+				type = "FlightDetails.json";
+				document.getElementById("type").value = "Flight";
+			}
 			document.getElementById("Search").style.display = "block";
 			document.getElementById("Search").style.visibility = "visible";	
 		}
@@ -80,7 +96,7 @@
 				{
 					var request = new XMLHttpRequest();
 					request.overrideMimeType("application/json");
-					request.open('GET','TrainDetails.json',true);
+					request.open('GET',type,true);
 					request.onload = function()
 										{
 											populate(request.responseText);
@@ -101,12 +117,13 @@
 				var i = 0;
 				while(ourdata[i] != null)
 				{
-					var t = ourdata[i].TrainNo;
+					var t = ourdata[i].No;
 					if(t == document.getElementById("num").value)
 					{
-						console.log("in if");
-						document.getElementById("from").value = ourdata[i].From;
-						document.getElementById("to").value = ourdata[i].To;
+						document.getElementById("src").value = ourdata[i].From;
+						document.getElementById("dest").value = ourdata[i].To;
+						document.getElementById("d").value = ourdata[i].DTime;
+						document.getElementById("a").value = ourdata[i].ATime;
 						break;
 					}
 					else
@@ -120,9 +137,11 @@
 				{
 					var f = (ourdata[i].From).toLowerCase();
 					var t = (ourdata[i].To).toLowerCase();
-					if(f == (document.getElementById("from").value).toLowerCase() && t == (document.getElementById("to").value).toLowerCase())
+					if(f == (document.getElementById("src").value).toLowerCase() && t == (document.getElementById("dest").value).toLowerCase())
 					{
-						document.getElementById("num").value = ourdata[i].TrainNo;
+						document.getElementById("num").value = ourdata[i].No;
+						document.getElementById("d").value = ourdata[i].DTime;
+						document.getElementById("a").value = ourdata[i].ATime;
 						break;
 					}
 					else
@@ -138,30 +157,31 @@
 			
 <body>
 	<div class = "container">
+		<div class = "row">
+		<div class = "col-md-2">
 		<div id="mySidenav" class="sidenav">
-			<a href="javascript:;" onClick = "show()">Train&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
-	  		<a href="javascript:;" onClick = "show()">Bus&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
-	  		<a href="javascript:;" onClick = "show()">Flight&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
+			<a href="javascript:;" onClick = "show(1)">Train&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
+	  		<a href="javascript:;" onClick = "show(2)">Bus&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
+	  		<a href="javascript:;" onClick = "show(3)">Flight&nbsp;&nbsp;&nbsp;<i class="fa fa-hand-o-right"></i></a>
 		</div>
-		<div id = "Search" >
-			<form action="BookTickets1" method = "get" class = "form-group">
-				No.<input type = "number" id = "num" value = "" class = "form-control" required = ""><br />
-				From:<input type = "text" id = "from" value = "" class = "form-control" required = "">
-				To:<input type = "text" id = "to" value = "" class = "form-control" required = ""><br />
+		</div>
+		<div class = "col-md-10">
+		<div id = "Search">
+			<form action="BookTickets1.do" method = "get" class = "form-group">
+				No.<input type = "number" id = "num" name = "num" value = "" class = "form-control" required = ""><br />
+				From:<input type = "text" id = "src" name = "src" value = "" class = "form-control" required = "">
+				To:<input type = "text" id = "dest" name = "dest" value = "" class = "form-control" required = ""><br />
+				Date of Travel:<input type = "date" class = "form-control" name = "date"><br />
+				<input type = "hidden" id = "d" name = "d">
+				<input type = "hidden" id = "a" name = "a">
+				<input type = "hidden" id = "type" name = "type">
 				<input type = "button" id = "b" value = "Get" onClick = "load()" class = "btn btn-success btn-md">
 				<hr />
-				No.of Tickets<select id = "tickets" class = "form-control">
-					<option value = "1">1</option>
-					<option value = "2">2</option>
-					<option value = "3">3</option>
-					<option value = "4">4</option>
-					<option value = "5">5</option>
-					<option value = "6">6</option>
-				</select><br />
-				<input type = "submit" class = "btn btn-md btn-block btn-success" value = "Proceed">
+				<input type = "submit" class = "btn btn-md btn-block btn-primary" value = "Proceed">
 			</form>
 		</div>
-		
+		</div>
+		</div>
 	</div>  
 </body>
 </html> 

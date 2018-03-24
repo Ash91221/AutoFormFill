@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file= "/common/header.jsp" %>
 <%@ include file= "/common/nav.jsp" %>
+
 <%@ page language="java" import="java.util.*, com.app.transaction.*" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -56,22 +58,7 @@
 			
 	</style>
 	<script>
-	function populate()
-	{
-		<% 
-		if(request.getSession().getAttribute("Details")!=null)
-		{
-		ArrayList<Details> ODetails = (ArrayList<Details>)request.getSession().getAttribute("Details");
-		for(Details s:ODetails)
-		{
-		%>
-		document.getElementById("a2").value = "<%= s.getName() %>";
-		document.getElementById("a3").value = "<%= s.getMobile() %>";
-		document.getElementById("a4").value = "<%= s.getGender() %>";
-		document.getElementById("a5").value = "<%= s.getEmail() %>";
-		document.getElementById("a6").value = "<%= s.getAge() %>";
-		<% } } %>
-	}
+		
 	</script>
 </head>
 <body>
@@ -93,28 +80,46 @@
 						<th>Age</th>
 						<th></th>
 					</tr>
+					<br /><button class = "btn btn-warning btn-block btn-md" data-toggle = "modal" data-target = "#Add">Add Passenger</button><br />
 				</thead>
 				<tbody class="table table-striped">
-					<%
-						//int t = (int)request.getSession().getAttribute("Tickets");
-						for(int i = 0;i < 6;i++) {
-					%>
+					  <c:forEach items="${Details}" var="u">
 					<tr>
-					<form action = "BookTickets1" method = "post">
-						<td><input type = "text" name = "a1" id = "a1" required = ""></td>
-						<td><input type = "text" id = "a2" readonly = "true"></td>
-						<td><input type = "text" id = "a3" readonly = "true"></td>
-						<td><input type = "text" id = "a4" readonly = "true"></td>
-						<td><input type = "text" id = "a5" readonly = "true"></td>
-						<td><input type = "text" id = "a6" readonly = "true"></td>
-						<td><input type = "submit" id = "btn" class = "btn btn-sm btn-success" onClick = "populate()" value = "Get"></td>
+					<form action = "BookTickets1.do" method = "post">
+						<td><input type = "text" name = "a1" id = "a1" value = "${u.aid}" readonly = "true" style = "border:none"></td>
+						<td><input type = "text" id = "a2" readonly = "true" value="${u.name}" style = "border:none"></td>
+						<td><input type = "text" id = "a3" readonly = "true" value="${u.mobile}" style = "border:none"></td>
+						<td><input type = "text" id = "a4" readonly = "true" value="${u.gender}" style = "border:none"></td>
+						<td><input type = "text" id = "a5" readonly = "true" value="${u.email}" style = "border:none"></td>
+						<td><input type = "text" id = "a6" readonly = "true" value="${u.age}" style = "border:none"></td>
+						<!--<td><input type = "submit" id = "btn" class = "btn btn-sm btn-success" ></td> -->
 					</form>
-					<% } %>		
+					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
-			<form action="#">
+			<form action="OrderSummary.do">
 				<center><input type = "submit" value = "Order Summary" class = "btn btn-lg btn-warning"></center>
 			</form>
+		</div>
+		<div class = "modal fade" id = "Add">
+			<div class = "modal-dialog modal-dialog-centered" role = "document">
+				<div class = "modal-content">
+					<div class = "modal-header">
+						<h2>Add Passenger</h2>
+					</div>
+					<div class = "modal-body">
+						<form action = "BookTickets1.do" method = "post">
+							AadhaarNo:
+					 		<input type = "text" name = "z1" id = "z1" class = "form-control" placeholder = "AadhaarNo" required="" autofocus=""><br>
+							<input type = "submit" class = "btn btn-success btn-lg " value = "Add">
+						</form>
+					</div>
+					<div class = "modal-footer">
+						
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>

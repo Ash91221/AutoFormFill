@@ -16,7 +16,7 @@ import com.app.Services.ServicesProxy;
 /**
  * Servlet implementation class BookingTickets
  */
-@WebServlet("/BookingTickets")
+@WebServlet("/BookingTickets.do")
 public class BookingTickets extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	ArrayList<Object> ODetails = new ArrayList<Object>();

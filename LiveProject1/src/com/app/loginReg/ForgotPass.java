@@ -53,7 +53,6 @@ public class ForgotPass extends HttpServlet {
 			if(u.equals(u1))
 			{
 				request.getSession().setAttribute("userName",u);
-				request.getSession().setAttribute("from","Forgot");
 				RequestDispatcher rd = request.getRequestDispatcher("OtpValidation1");
 				rd.forward(request, response);
 			}
